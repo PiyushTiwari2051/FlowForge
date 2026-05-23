@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ── AUTH MODELS ──────────────────────────────────────────────────
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  password      String?
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  accounts      Account[]
+  sessions      Session[]
+  apps          App[]
+  notifications Notification[]
+  auditLogs     AuditLog[]
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?
+  access_token       String?
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?
+  session_state      String?
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  @@unique([identifier, token])
+}
+
+// ── APP CONFIG STORE ──────────────────────────────────────────────
+model App {
+  id          String   @id @default(cuid())
+  name        String
+  config      String                   // Stores the full AppConfig JSON as string for database portability
+  userId      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  isPublished Boolean  @default(false)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  auditLogs AuditLog[]
+}
+
+// ── AUDIT LOG ─────────────────────────────────────────────────────
+model AuditLog {
+  id        String   @id @default(cuid())
+  appId     String
+  userId    String
+  table     String
+  action    String   // "create" | "update" | "delete"
+  recordId  String
+  before    String?  // JSON string
+  after     String?  // JSON string
+  createdAt DateTime @default(now())
+  app  App  @relation(fields: [appId],  references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ── NOTIFICATIONS ─────────────────────────────────────────────────
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  type      String   // "in_app" | "email"
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

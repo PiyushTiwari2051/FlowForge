@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default: dark-zinc values */
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-450: #8e8e93;
+  --zinc-500: #71717a;
+  --zinc-550: #5b5b60;
+  --zinc-600: #52525b;
+  --zinc-650: #424245;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-850: #1f1f23;
+  --zinc-900: #121214;
+  --zinc-950: #09090b;
+
+  --accent-color: #ffffff;
+  --accent-light: #a1a1aa;
+  --accent-dark: #27272a;
+  --grid-color: rgba(255, 255, 255, 0.025);
+}
+
+:root:not(.dark) {
+  --grid-color: rgba(0, 0, 0, 0.035);
+}
+
+
+[data-theme="dark-zinc"] {
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-450: #8e8e93;
+  --zinc-550: #5b5b60;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-650: #424245;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-850: #1f1f23;
+  --zinc-900: #121214;
+  --zinc-950: #09090b;
+  --accent-color: #ffffff;
+  --accent-light: #a1a1aa;
+  --accent-dark: #27272a;
+}
+
+[data-theme="dark-midnight"] {
+  --zinc-50: #f8fafc;
+  --zinc-100: #f1f5f9;
+  --zinc-200: #e2e8f0;
+  --zinc-300: #cbd5e1;
+  --zinc-400: #94a3b8;
+  --zinc-450: #7a8a9e;
+  --zinc-500: #64748b;
+  --zinc-555: #51627a;
+  --zinc-550: #51627a;
+  --zinc-600: #475569;
+  --zinc-650: #334155;
+  --zinc-700: #1e293b;
+  --zinc-800: #111c44;
+  --zinc-850: #0b1329;
+  --zinc-900: #070d1e;
+  --zinc-950: #030712;
+  --accent-color: #38bdf8;
+  --accent-light: #7dd3fc;
+  --accent-dark: #0369a1;
+}
+
+[data-theme="dark-forest"] {
+  --zinc-50: #f0fdf4;
+  --zinc-100: #e2f8eb;
+  --zinc-200: #c2f0d5;
+  --zinc-300: #93e0b3;
+  --zinc-400: #5ec58e;
+  --zinc-450: #47af78;
+  --zinc-500: #349662;
+  --zinc-550: #2b7d52;
+  --zinc-600: #1f6440;
+  --zinc-650: #1b5336;
+  --zinc-700: #143f29;
+  --zinc-800: #0f2e1e;
+  --zinc-850: #0a2015;
+  --zinc-900: #07160e;
+  --zinc-950: #030a06;
+  --accent-color: #10b981;
+  --accent-light: #34d399;
+  --accent-dark: #047857;
+}
+
+[data-theme="dark-velvet"] {
+  --zinc-50: #faf5ff;
+  --zinc-100: #f3e8ff;
+  --zinc-200: #e9d5ff;
+  --zinc-300: #d8b4fe;
+  --zinc-400: #c084fc;
+  --zinc-450: #aa65f7;
+  --zinc-500: #a855f7;
+  --zinc-550: #9333ea;
+  --zinc-600: #7e22ce;
+  --zinc-650: #6b21a8;
+  --zinc-700: #581c87;
+  --zinc-800: #3b0764;
+  --zinc-850: #250244;
+  --zinc-900: #16012c;
+  --zinc-950: #09001b;
+  --accent-color: #c084fc;
+  --accent-light: #e9d5ff;
+  --accent-dark: #6b21a8;
+}
+
+[data-theme="dark-crimson"] {
+  --zinc-50: #fff5f5;
+  --zinc-100: #ffe3e3;
+  --zinc-200: #ffc9c9;
+  --zinc-300: #ffa8a8;
+  --zinc-400: #ff8787;
+  --zinc-450: #f06595;
+  --zinc-550: #e03131;
+  --zinc-500: #fa5252;
+  --zinc-600: #c92a2a;
+  --zinc-650: #b02020;
+  --zinc-700: #8c1010;
+  --zinc-800: #5c0808;
+  --zinc-850: #3f0303;
+  --zinc-900: #240101;
+  --zinc-950: #0f0000;
+  --accent-color: #f03e3e;
+  --accent-light: #ffa8a8;
+  --accent-dark: #a21010;
+}
+
+[data-theme="light-indigo"] {
+  --zinc-50: #020617;
+  --zinc-100: #0f172a;
+  --zinc-200: #1e293b;
+  --zinc-300: #334155;
+  --zinc-400: #475569;
+  --zinc-450: #51627a;
+  --zinc-500: #64748b;
+  --zinc-550: #7a8a9e;
+  --zinc-600: #94a3b8;
+  --zinc-650: #b1bdcd;
+  --zinc-700: #cbd5e1;
+  --zinc-800: #e2e8f0;
+  --zinc-850: #edf1f5;
+  --zinc-900: #f8fafc;
+  --zinc-950: #ffffff;
+  --accent-color: #4f46e5;
+  --accent-light: #818cf8;
+  --accent-dark: #3730a3;
+}
+
+[data-theme="light-amber"] {
+  --zinc-50: #1c0f05;
+  --zinc-100: #2e1d0c;
+  --zinc-200: #4a341a;
+  --zinc-300: #6b4e28;
+  --zinc-400: #8c6a38;
+  --zinc-450: #a38148;
+  --zinc-500: #b5955a;
+  --zinc-550: #c7ab70;
+  --zinc-600: #d9c288;
+  --zinc-650: #e3d29b;
+  --zinc-700: #eedeb0;
+  --zinc-800: #f4eac8;
+  --zinc-850: #f9f4dd;
+  --zinc-900: #fdfbf4;
+  --zinc-950: #fffdf9;
+  --accent-color: #d97706;
+  --accent-light: #fbbf24;
+  --accent-dark: #92400e;
+}
+
+[data-theme="light-emerald"] {
+  --zinc-50: #022c22;
+  --zinc-100: #064e3b;
+  --zinc-200: #047857;
+  --zinc-300: #065f46;
+  --zinc-400: #0f766e;
+  --zinc-450: #115e59;
+  --zinc-500: #14b8a6;
+  --zinc-550: #2dd4bf;
+  --zinc-600: #5eead4;
+  --zinc-650: #99f6e4;
+  --zinc-700: #ccfbf1;
+  --zinc-800: #e6fcf5;
+  --zinc-850: #f0fdf9;
+  --zinc-900: #f5fffa;
+  --zinc-950: #fafdfb;
+  --accent-color: #059669;
+  --accent-light: #34d399;
+  --accent-dark: #065f46;
+}
+
+[data-theme="light-rose"] {
+  --zinc-50: #4c0519;
+  --zinc-100: #881337;
+  --zinc-200: #9f1239;
+  --zinc-300: #be123c;
+  --zinc-400: #e11d48;
+  --zinc-450: #f43f5e;
+  --zinc-550: #fb7185;
+  --zinc-500: #fda4af;
+  --zinc-650: #fecdd3;
+  --zinc-700: #ffe4e6;
+  --zinc-800: #fff1f2;
+  --zinc-850: #fff5f6;
+  --zinc-900: #fffafb;
+  --zinc-950: #ffffff;
+  --accent-color: #db2777;
+  --accent-light: #f472b6;
+  --accent-dark: #9d174d;
+}
+
+[data-theme="light-teal"] {
+  --zinc-50: #042f2e;
+  --zinc-100: #115e59;
+  --zinc-200: #0f766e;
+  --zinc-300: #0d9488;
+  --zinc-400: #14b8a6;
+  --zinc-450: #2dd4bf;
+  --zinc-550: #99f6e4;
+  --zinc-500: #5eead4;
+  --zinc-600: #ccfbf1;
+  --zinc-650: #e0f2fe;
+  --zinc-700: #f0f9ff;
+  --zinc-800: #f0fdfa;
+  --zinc-850: #f4fbf9;
+  --zinc-900: #f9fdfc;
+  --zinc-950: #ffffff;
+  --accent-color: #0d9488;
+  --accent-light: #2dd4bf;
+  --accent-dark: #115e59;
+}
+
+body {
+  background-color: var(--zinc-950);
+  color: var(--zinc-100);
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-grid {
+    background-size: 32px 32px;
+    background-image: 
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  }
+  .bg-grid-mask {
+    mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  }
+}
+
